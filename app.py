@@ -1,7 +1,7 @@
 import streamlit as st
 from dotenv import load_dotenv
 import os
-import openai
+import requests  # Used for interacting with the Gemini AI API
 import numpy as np
 from PIL import Image, ImageOps
 from keras.models import load_model
@@ -18,9 +18,9 @@ class CustomDepthwiseConv2D(DepthwiseConv2D):
 # Load model with custom object
 model = load_model("keras_model.h5", custom_objects={'DepthwiseConv2D': CustomDepthwiseConv2D}, compile=False)
 
-# Load the OpenAI API key
+# Load the Gemini API key
 load_dotenv()
-openai.api_key = os.getenv('OPENAI_API_KEY')
+gemini_api_key = os.getenv('GEMINI_API_KEY')
 
 def classify_waste(img):
     np.set_printoptions(suppress=True)
@@ -50,23 +50,30 @@ def generate_carbon_footprint_info(label):
     # Adjust the label extraction based on your specific labeling format
     label = label.split(' ')[1]  # Remove the newline and space
     
-    # Prepare the message for the new ChatCompletion API
-    messages = [
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": f"Describe the approximate carbon emission or carbon footprint generated from {label} waste. I just need an approximate number to create awareness. Elaborate in 100 words."}
-    ]
+    # Prepare the message for the Gemini API (or any custom prompt)
+    payload = {
+        "prompt": f"Describe the approximate carbon emission or carbon footprint generated from {label} waste. Elaborate in 100 words.",
+        "max_tokens": 600,
+        "temperature": 0.7,
+        "top_p": 1,
+        "n": 1
+    }
     
+    headers = {
+        "Authorization": f"Bearer {gemini_api_key}",
+        "Content-Type": "application/json"
+    }
+
     try:
-        # Use the new ChatCompletion API
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",  # or "gpt-4" if needed
-            messages=messages,
-            max_tokens=600,
-            temperature=0.7
-        )
-        # Return the assistant's message content
-        return response['choices'][0]['message']['content']
-    
+        # Make a POST request to the Gemini AI API
+        response = requests.post("https://api.gemini.ai/v1/completions", json=payload, headers=headers)
+
+        if response.status_code == 200:
+            result = response.json()
+            return result['choices'][0]['text'].strip()
+        else:
+            return f"Error: {response.status_code} - {response.text}"
+
     except Exception as e:
         return f"Error: {str(e)}"
 
@@ -96,33 +103,33 @@ if input_img is not None:
             if label == "0 cardboard\n":
                 st.success("The image is classified as CARDBOARD.")
                 with col4:
-                    st.image("12.png", use_container_width=True)
-                    st.image("13.png", use_container_width=True)
+                    st.image("sdg goals/12.png", use_container_width=True)
+                    st.image("sdg goals/13.png", use_container_width=True)
                 with col5:
-                    st.image("14.png", use_container_width=True)
-                    st.image("15.png", use_container_width=True)
+                    st.image("sdg goals/14.png", use_container_width=True)
+                    st.image("sdg goals/15.png", use_container_width=True)
             elif label == "1 plastic\n":
                 st.success("The image is classified as PLASTIC.")
                 with col4:
-                    st.image("6 (1).jpg", use_container_width=True)
-                    st.image("12.png", use_container_width=True)
+                    st.image("sdg goals/6 (1).jpg", use_container_width=True)
+                    st.image("sdg goals/12.png", use_container_width=True)
                 with col5:
-                    st.image("14.png", use_container_width=True)
-                    st.image("15.png", use_container_width=True)
+                    st.image("sdg goals/14.png", use_container_width=True)
+                    st.image("sdg goals/15.png", use_container_width=True)
             elif label == "2 glass\n":
                 st.success("The image is classified as GLASS.")
                 with col4:
-                    st.image("12.png", use_container_width=True)
+                    st.image("sdg goals/12.png", use_container_width=True)
                 with col5:
-                    st.image("14.png", use_container_width=True)
+                    st.image("sdg goals/14.png", use_container_width=True)
             elif label == "3 metal\n":
                 st.success("The image is classified as METAL.")
                 with col4:
-                    st.image("3.png", use_container_width=True)
-                    st.image("6 (1).jpg", use_container_width=True)
+                    st.image("sdg goals/3.png", use_container_width=True)
+                    st.image("sdg goals/6 (1).jpg", use_container_width=True)
                 with col5:
-                    st.image("12.png", use_container_width=True)
-                    st.image("14.png", use_container_width=True)
+                    st.image("sdg goals/12.png", use_container_width=True)
+                    st.image("sdg goals/14.png", use_container_width=True)
             else:
                 st.error("The image is not classified as any relevant class.")
 
