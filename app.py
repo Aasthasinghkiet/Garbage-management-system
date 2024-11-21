@@ -96,33 +96,33 @@ if input_img is not None:
             if label == "0 cardboard\n":
                 st.success("The image is classified as CARDBOARD.")
                 with col4:
-                    st.image("sdg goals/12.png", use_container_width=True)
-                    st.image("sdg goals/13.png", use_container_width=True)
+                    st.image("12.png", use_container_width=True)
+                    st.image("13.png", use_container_width=True)
                 with col5:
-                    st.image("sdg goals/14.png", use_container_width=True)
-                    st.image("sdg goals/15.png", use_container_width=True)
+                    st.image("14.png", use_container_width=True)
+                    st.image("15.png", use_container_width=True)
             elif label == "1 plastic\n":
                 st.success("The image is classified as PLASTIC.")
                 with col4:
-                    st.image("sdg goals/6 (1).jpg", use_container_width=True)
-                    st.image("sdg goals/12.png", use_container_width=True)
+                    st.image("6 (1).jpg", use_container_width=True)
+                    st.image("12.png", use_container_width=True)
                 with col5:
-                    st.image("sdg goals/14.png", use_container_width=True)
-                    st.image("sdg goals/15.png", use_container_width=True)
+                    st.image("14.png", use_container_width=True)
+                    st.image("15.png", use_container_width=True)
             elif label == "2 glass\n":
                 st.success("The image is classified as GLASS.")
                 with col4:
-                    st.image("sdg goals/12.png", use_container_width=True)
+                    st.image("12.png", use_container_width=True)
                 with col5:
-                    st.image("sdg goals/14.png", use_container_width=True)
+                    st.image("14.png", use_container_width=True)
             elif label == "3 metal\n":
                 st.success("The image is classified as METAL.")
                 with col4:
-                    st.image("sdg goals/3.png", use_container_width=True)
-                    st.image("sdg goals/6 (1).jpg", use_container_width=True)
+                    st.image("3.png", use_container_width=True)
+                    st.image("6 (1).jpg", use_container_width=True)
                 with col5:
-                    st.image("sdg goals/12.png", use_container_width=True)
-                    st.image("sdg goals/14.png", use_container_width=True)
+                    st.image("12.png", use_container_width=True)
+                    st.image("14.png", use_container_width=True)
             else:
                 st.error("The image is not classified as any relevant class.")
 
