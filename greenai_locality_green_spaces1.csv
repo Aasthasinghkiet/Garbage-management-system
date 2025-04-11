@@ -1,0 +1,27 @@
+locality,city,full_location,green_area_km2,total_area_km2,green_percent,latitude,longitude,suitable_for_greenai
+Lodhi Colony,Delhi,"Lodhi Colony, Delhi, India",0.07,1.42,4.93,28.584202402536473,77.22360532239102,False
+Cuffe Parade,Mumbai,"Cuffe Parade, Mumbai, India",0.0,0.0,0.0,,,False
+Cubbon Park,Bengaluru,"Cubbon Park, Bengaluru, India",1.19,0.65,183.08,12.974572036903215,77.59243751382594,True
+Lalbagh,Bengaluru,"Lalbagh, Bengaluru, India",1.05,0.96,109.38,12.948586569063323,77.58562520301238,True
+Besant Nagar,Chennai,"Besant Nagar, Chennai, India",23.5,344.53,6.82,13.009463424220003,80.2249063949373,True
+Adyar,Chennai,"Adyar, Chennai, India",17.01,42.7,39.84,13.000896812612291,80.23804920147086,True
+Gachibowli,Hyderabad,"Gachibowli, Hyderabad, India",29.03,672.69,4.32,17.42675290427608,78.45472476761553,True
+Banjara Hills,Hyderabad,"Banjara Hills, Hyderabad, India",29.03,672.69,4.32,17.42675290427608,78.45472476761553,True
+Alipore,Kolkata,"Alipore, Kolkata, India",0.53,5.03,10.54,22.524894926608052,88.3330294069189,True
+New Town,Kolkata,"New Town, Kolkata, India",10.47,215.32,4.86,22.526108335483517,88.35657626645951,True
+Sector 62,Noida,"Sector 62, Noida, India",0.0,0.0,0.0,,,False
+Whitefield,Bengaluru,"Whitefield, Bengaluru, India",0.0,0.0,0.0,,,False
+Koregaon Park,Pune,"Koregaon Park, Pune, India",0.07,2.32,3.02,18.53686473049251,73.89352953242187,False
+Rajendra Nagar,Indore,"Rajendra Nagar, Indore, India",0.0,0.0,0.0,,,False
+Maninagar,Ahmedabad,"Maninagar, Ahmedabad, India",0.0,0.0,0.0,,,False
+Vyttila,Kochi,"Vyttila, Kochi, India",0.0,0.0,0.0,,,False
+Panaji,Goa,"Panaji, Goa, India",0.0,0.0,0.0,,,False
+Aundh,Pune,"Aundh, Pune, India",0.0,0.0,0.0,,,False
+Anna Nagar,Chennai,"Anna Nagar, Chennai, India",0.56,26.8,2.09,13.087687418323318,80.22167570156526,True
+Shyambazar,Kolkata,"Shyambazar, Kolkata, India",0.0,0.0,0.0,,,False
+Jubilee Hills,Hyderabad,"Jubilee Hills, Hyderabad, India",0.0,0.0,0.0,,,False
+Powai,Mumbai,"Powai, Mumbai, India",64.81,437.68,14.81,19.143037526765653,72.87697275173143,True
+Salt Lake City,Kolkata,"Salt Lake City, Kolkata, India",10.47,215.32,4.86,22.526108335483517,88.35657626645951,True
+DLF Phase 3,Gurugram,"DLF Phase 3, Gurugram, India",0.0,0.0,0.0,,,False
+Jayanagar,Bengaluru,"Jayanagar, Bengaluru, India",0.01,0.4,2.5,12.94019662510775,77.58270529416482,False
+Porvorim,Goa,"Porvorim, Goa, India",0.0,0.0,0.0,,,False
